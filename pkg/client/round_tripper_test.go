@@ -19,7 +19,7 @@ package client
 import (
 	"testing"
 
-	"github.com/kcp-dev/logicalcluster/v2"
+	"github.com/kcp-dev/logicalcluster/v3"
 )
 
 func TestRoundTripper_generatePath(t *testing.T) {
