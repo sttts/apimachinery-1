@@ -75,14 +75,14 @@ func SplitMetaClusterNamespaceKey(key string) (clusterName logicalcluster.Name, 
 		if err != nil {
 			err = invalidKey
 		}
-		return logicalcluster.Name{}, namespace, name, err
+		return logicalcluster.Path{}, namespace, name, err
 	case 2:
 		namespace, name, err := cache.SplitMetaNamespaceKey(outerParts[1])
 		if err != nil {
 			err = invalidKey
 		}
-		return logicalcluster.NewName(outerParts[0]), namespace, name, err
+		return logicalcluster.Name(outerParts[0]), namespace, name, err
 	default:
-		return logicalcluster.Name{}, "", "", invalidKey
+		return logicalcluster.Path{}, "", "", invalidKey
 	}
 }

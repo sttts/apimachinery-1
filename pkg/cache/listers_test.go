@@ -112,7 +112,7 @@ func TestGenericLister(t *testing.T) {
 
 	for name, tt := range tests {
 		t.Run(name, func(t *testing.T) {
-			lister := l.ByCluster(logicalcluster.NewName(tt.cluster))
+			lister := l.ByCluster(logicalcluster.Name(tt.cluster))
 
 			if tt.name == "" {
 				list, err := lister.List(tt.selector)
@@ -151,7 +151,7 @@ func TestGenericNamespaceLister(t *testing.T) {
 
 	cluster := "c1"
 
-	l := NewGenericClusterLister(indexer, schema.GroupResource{}).ByCluster(logicalcluster.NewName(cluster))
+	l := NewGenericClusterLister(indexer, schema.GroupResource{}).ByCluster(logicalcluster.Name(cluster))
 
 	tests := map[string]struct {
 		namespace  string
